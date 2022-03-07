@@ -28,88 +28,9 @@ int sumOfDigits(int n) {
 
   return ans;
 }
-
-// 0 1 1 2 3 5 8 13 21...
-int nthFibonacci(int n) {
-  // base case
-  if(n == 0 || n == 1) return n;
-
-  // recursion work
-  int prev_fib = nthFibonacci(n-2);
-  int prevprev_fib = nthFibonacci(n-1);
-
-  // my-work
-  int ans = prev_fib + prevprev_fib;
-
-  return ans;
-}
-/*
-
-f(n) = f(n-1) + f(n-2)
-
-tn = tn-1 + tn-2 , tn-1~tn-2
-tn = 2*tn-1 
-               , tn-1 = tn-2+tn-3 = 2*tn-2
-tn = 2*2*tn-2
-                , tn-2 = tn-3+tn-4 = 2*tn-3
-tn = 2*2*2*tn-3
-
-                 n-k = 0
-                 n = k 
-tn = 2^k*tn-k     
-tn = 2^n       
-
-*/
-
-
-//D E SI R E
-//e + rised //o(n)
-
-//TC = no. of recursive calls * time taken in 1 call
-
-void reverseString(string &s, int lo, int hi){
- // base case
-  if(lo >= hi) return;
-
-  // recursion work
-  reverseString(s,lo+1,hi-1);
-
-  // my-work
-  swap(s[lo],s[hi]);
-}
-
-void reverseString(string &s) {
-  reverseString(s,0,s.size()-1);
-}
-
-//NITIN = NITIN
-//DESIRE != DESIRE
-//MOMO != OMOM
-bool isPalindrome(string &s, int lo, int hi){
-  if(lo >= hi) return 1;
-
-  if(s[lo] == s[hi] && isPalindrome(s,lo+1,hi-1)) return 1;
-
-  return 0;
-}
-
-bool isPalindrome(string &s){
-    return isPalindrome(s,0,s.size()-1);
-}
-
-
 int main() {
     cout << "countOfDigits: " << countOfDigits(54162);
     cout << "\n\nsumOfDigits: " << sumOfDigits(54162);
-    cout << "\n\nnth Fibonacci: " << nthFibonacci(6);
-  
-    string s = "DESIRE";
-    cout << "\n\nOriginal String: " << s;
-    reverseString(s);
-    cout << "\n\nreversedString: " << s;
-    string s2 = "NITIN";
-    cout << "\n\nisPalindrome: " << s << " "  << isPalindrome(s);
-    cout << "\n\nisPalindrome: " << s2 << " " << isPalindrome(s2);
 
   return 0;
 }
