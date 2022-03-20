@@ -31,51 +31,23 @@ int sumOfDigits(int n) {
 
 // 0 1 1 2 3 5 8 13 21...
 int nthFibonacci(int n) {
-  // base case
-  if(n == 0 || n == 1) return n;
+  //base cases
+  if(n == 0) return 0;
+  if(n == 1) return 1;
 
-  // recursion work
-  int prev_fib = nthFibonacci(n-2);
-  int prevprev_fib = nthFibonacci(n-1);
+  //recursion work
+  int prev_fib = nthFibonacci(n-1);
+  int prev_prev_fib = nthFibonacci(n-2);
 
-  // my-work
-  int ans = prev_fib + prevprev_fib;
-
-  return ans;
+  //our work
+  int final_ans = prev_fib + prev_prev_fib;
+  return final_ans;
 }
-/*
-
-f(n) = f(n-1) + f(n-2)
-
-tn = tn-1 + tn-2 , tn-1~tn-2
-tn = 2*tn-1 
-               , tn-1 = tn-2+tn-3 = 2*tn-2
-tn = 2*2*tn-2
-                , tn-2 = tn-3+tn-4 = 2*tn-3
-tn = 2*2*2*tn-3
-
-                 n-k = 0
-                 n = k 
-tn = 2^k*tn-k     
-tn = 2^n       
-
-*/
-
-
-//D E SI R E
-//e + rised //o(n)
-
-//TC = no. of recursive calls * time taken in 1 call
 
 void reverseString(string &s, int lo, int hi){
- // base case
-  if(lo >= hi) return;
-
-  // recursion work
-  reverseString(s,lo+1,hi-1);
-
-  // my-work
-  swap(s[lo],s[hi]);
+    if(lo>=hi) return;
+    reverseString(s, lo+1, hi-1);
+    swap(s[lo], s[hi]);
 }
 
 void reverseString(string &s) {
@@ -83,13 +55,7 @@ void reverseString(string &s) {
 }
 
 //NITIN = NITIN
-//DESIRE != DESIRE
-//MOMO != OMOM
 bool isPalindrome(string &s, int lo, int hi){
-  if(lo >= hi) return 1;
-
-  if(s[lo] == s[hi] && isPalindrome(s,lo+1,hi-1)) return 1;
-
   return 0;
 }
 
@@ -100,44 +66,22 @@ bool isPalindrome(string &s){
 //aabbdddef = abdef
 // TC = n*n
 string removeDuplicates(string s) {
-  // base case
-  if(s.size() <= 1) return s;
-
-  // recursion work
-  string small_ans = removeDuplicates(s.substr(1));
-
-  // my-work
-  if(s[0] == small_ans[0]) return small_ans;
- 
-  return s[0] + small_ans;
+  return "";
 }
 
 int nonConsecutiveOnes(int n){
-  // base case
-  if(n==1) return 2;
-  if(n==2) return 3;
-
-  // recursion work
-  return nonConsecutiveOnes(n-1)+nonConsecutiveOnes(n-2);
+  return 0;
 }
 
 int StairCase(int n){
-  // base case
-  if(n < 0) return 0;
-  if(n==0) return 1;  
-  // recursion work
-  return StairCase(n-1) + StairCase(n-2);
+  return 0;
+
+
 }
 
 double myPow(double x, int n) {
-        if(n==0) return 1;
-        double y = myPow(x,n/2);
-        if(n%2==0){    
-            return y*y;
-        }
-        else{
-            return n < 0 ? 1/x*y*y : x*y*y; 
-        }
+  return 0;
+
 }
 
 int main() {
